@@ -3,7 +3,7 @@
 
 int main() {
     int i,num,swap;
-    char option[2];
+    char option[11];
     while (1) {
         printf("How many elements: ");
         scanf("%d", &num);
@@ -23,11 +23,11 @@ int main() {
 
         printf("Ascending or Descending (a/d): ");
         option[0] = getchar();
-        gets(option);
+        fgets(option, 11, stdin);
         strlwr(option);
 
         //Ascending
-        if (option[0] == 'a') {
+        if (option[0] == 'a' || option == "ascending") {
             for(int l1 = 0; l1 < num-1;l1++) {
                 for(int l2 = 0; l2 < num - l1 -1;l2++) {
                     if (array[l2] > array[l2+1]) { // greater than symbol for ascending
@@ -37,7 +37,7 @@ int main() {
                     }
                 }
             }
-        } else if (option[0] == 'd') { //Descending
+        } else if (option[0] == 'd' || option == "descending") { //Descending
             for(int l1 = 0; l1 < num - 1;l1++) {
                 for(int l2 = 0; l2 < num - l1 -1;l2++) {
                     if (array[l2] < array[l2+1]) { //less than symbol for descending
